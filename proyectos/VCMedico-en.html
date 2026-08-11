@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Computer Vision | José Manuel Román Rodríguez</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>José Manuel Román Rodríguez</h1>
+
+    <nav>
+        <a href="#hero">Description</a>
+
+        <a href="#objectives">Objectives</a>
+
+        <a href="#methodology">Methodology</a>
+
+        <a href="#architectures">Architectures</a>
+
+        <a href="#technologies">Technologies</a>
+        
+        <a href="#results">Results</a>
+
+        <a href="#captures">Captures</a>
+
+        <a href="#conclusions">Conclusions</a>
+
+        <div class="language-selector">
+            <a href="VCMedico.html">🇪🇸 ES</a>
+            <a href="VCMedico-en.html">🇬🇧 EN</a>
+        </div>
+
+        <a href="../index-en.html">← Back to Portfolio</a>
+
+    </nav>
+
+</header>
+
+<!-- =========================================== -->
+<!-- HERO -->
+<!-- =========================================== -->
+
+<section id="hero">
+    <div class="container">
+
+    <h2>3D Medical Image Segmentation using Deep Learning</h2>
+
+    <p>
+
+        Team project focused on the automatic segmentation of three-dimensional
+        medical images using Computer Vision and Deep Learning techniques.
+
+    </p>
+
+    <p>
+
+        The objective of this project was to develop and evaluate semantic
+        segmentation models capable of automatically identifying
+        anatomical structures in three-dimensional medical images.
+
+    </p>
+
+    <p>
+
+        The <strong>KiTS23 (Kidney Tumor
+        Segmentation Challenge 2023)</strong> dataset was used for this purpose.
+        It consists of computed tomography (CT) studies designed for the
+        segmentation of kidneys, tumors, and associated structures.
+
+    </p>
+
+    <p>
+
+        <strong>Group project (4 members).</strong>
+
+    </p>
+
+    <div class="hero-buttons">
+
+        <a href="https://github.com/josemanuelroman0306/VisionPorComputador"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+        </a>
+
+    </div>
+    </div>
+</section>
+
+<!-- =========================================== -->
+<!-- OBJECTIVES -->
+<!-- =========================================== -->
+
+<section id="objectives">
+    <div class="container">
+
+    <h2>Objectives</h2>
+
+    <ul>
+
+        <li>Automatically segment anatomical structures in CT images.</li>
+
+        <li>Compare 2D CNN and 3D CNN models.</li>
+
+        <li>Evaluate the effect of image preprocessing.</li>
+
+        <li>Analyze performance using segmentation metrics.</li>
+
+    </ul>
+    </div>
+</section>
+
+<!-- =========================================== -->
+<!-- METHODOLOGY -->
+<!-- =========================================== -->
+
+<section id="methodology">
+    <div class="container">
+
+    <h2>Methodology</h2>
+
+<pre>
+
+KiTS23 Dataset (CT)
+
+        │
+
+        ▼
+
+Preprocessing
+
+        │
+
+        ▼
+
+CNN Training
+
+        │
+
+        ▼
+
+Segmentation
+
+        │
+
+        ▼
+
+Evaluation
+
+</pre>
+    </div>
+</section>
+
+<!-- =========================================== -->
+<!-- ARCHITECTURES -->
+<!-- =========================================== -->
+
+<section id="architectures">
+    <div class="container">
+
+    <h2>Evaluated Architectures</h2>
+
+    <p>
+        Different convolutional neural network architectures were evaluated
+        for medical image segmentation, comparing
+        <strong>2D and 3D</strong> approaches. The objective was to study
+        how the use of complete volumetric spatial information affects
+        segmentation quality.
+    </p>
+
+    <div class="architecture-group">
+
+        <h3>2D Architecture — U-Net + ResNet50</h3>
+
+        <p>
+            For the 2D approach, a
+            <strong>U-Net architecture with a ResNet50 encoder pretrained on ImageNet</strong>
+            was used. The medical volumes were divided into equally spaced
+            two-dimensional slices, working with 128 slices per volume.
+        </p>
+
+        <p>
+            U-Net uses an encoder-decoder structure. The encoder extracts
+            features while progressively reducing the spatial resolution,
+            whereas the decoder reconstructs the segmentation through
+            upsampling operations. <strong>Skip connections</strong> allow
+            detailed spatial information to be recovered and combined with
+            the features extracted by the encoder.
+        </p>
+
+        <p>
+            The use of ResNet50 allowed previously learned features to be
+            leveraged through transfer learning. Focal Loss and the Adam
+            optimizer were used during training.
+        </p>
+
+    </div>
+
+    <div class="architecture-group">
+
+        <h3>3D Architectures</h3>
+
+        <p>
+            Unlike the 2D approach, 3D architectures process the medical
+            volumes directly, using three-dimensional convolutions to preserve
+            spatial information between different slices.
+        </p>
+
+        <h4>3D U-Net</h4>
+
+        <p>
+            <strong>3D U-Net</strong> adapts the U-Net architecture to the
+            volumetric domain. Its encoder-decoder structure allows features
+            to be extracted at different scales and the segmentation to be
+            reconstructed while preserving spatial details through
+            <strong>skip connections</strong>.
+        </p>
+
+        <h4>V-Net</h4>
+
+        <p>
+            <strong>V-Net</strong> is specifically designed for
+            3D volumetric segmentation. Its architecture follows a structure
+            similar to U-Net, but incorporates
+            <strong>residual connections</strong> within the convolutional
+            blocks, facilitating the training of deep networks and improving
+            gradient propagation.
+        </p>
+
+        <h4>SegResNet</h4>
+
+        <p>
+            <strong>SegResNet</strong> is a 3D architecture based on residual
+            blocks and an encoder-decoder structure. In this project,
+            <strong>fine-tuning</strong> was also performed by freezing the
+            first layers of the encoder and mainly updating the decoder in
+            order to leverage previously learned features.
+        </p>
+
+        <p>
+            This strategy provided a good balance between representation
+            capacity and computational cost, achieving the most consistent
+            results among the architectures studied.
+        </p>
+
+    </div>
+
+    <div class="architecture-comparison">
+
+        <h3>2D vs. 3D Comparison</h3>
+
+        <p>
+            The 3D models showed better performance in volumetric segmentation
+            by preserving the complete spatial information of the images.
+            In contrast, the 2D approach is computationally more efficient
+            and allows larger batch sizes to be used, but loses part of the
+            information between consecutive slices.
+        </p>
+
+        <p>
+            In the experiments performed, this loss of spatial information
+            contributed to the lower performance of the 2D models compared
+            with the 3D architectures.
+        </p>
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================== -->
+<!-- TECHNOLOGIES -->
+<!-- =========================================== -->
+
+<section id="technologies">
+    <div class="container">
+
+    <h2>Technologies</h2>
+
+    <ul>
+
+        <li>Python</li>
+
+        <li>PyTorch</li>
+
+        <li>Computer Vision</li>
+
+        <li>Deep Learning</li>
+
+        <li>Semantic Segmentation</li>
+
+        <li>Convolutional Neural Networks (CNN)</li>
+
+        <li>KiTS23 Dataset</li>
+
+        <li>NumPy</li>
+
+        <li>Matplotlib</li>
+
+        <li>Jupyter Notebook</li>
+
+    </ul>
+    </div>
+</section>
+
+<!-- =========================================== -->
+<!-- RESULTS -->
+<!-- =========================================== -->
+
+<section id="results">
+
+    <div class="container">
+
+        <h2>Results</h2>
+
+        <p>
+            Different segmentation architectures were evaluated on the
+            <strong>KiTS23</strong> dataset, comparing
+            2D and 3D models using the <strong>IoU</strong> and
+            <strong>Dice Score</strong> metrics.
+        </p>
+
+        <p>
+            The experiments made it possible to analyze the impact of model
+            dimensionality, class balancing techniques, and different loss
+            functions on the segmentation of kidneys, tumors, and cysts.
+        </p>
+
+
+        <!-- ===================== -->
+        <!-- 2D MODELS -->
+        <!-- ===================== -->
+
+        <div class="resultados-bloque">
+
+            <h3>Results of the 2D Models</h3>
+
+            <p>
+                For the 2D experiments, equally spaced slices from the
+                3D volumes were used, resulting in a total of
+                <strong>124,928 2D images</strong>.
+                A U-Net with a
+                <strong>ResNet50 encoder pretrained on ImageNet</strong>
+                was used.
+            </p>
+
+            <p>
+                Due to the strong class imbalance, different sampling
+                strategies were investigated.
+            </p>
+
+
+            <h4>U-Net + ResNet50</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Class</th>
+                            <th>IoU</th>
+                            <th>Dice</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Background</td>
+                            <td>0.9951</td>
+                            <td>0.9975</td>
+                        </tr>
+
+                        <tr>
+                            <td>Kidney</td>
+                            <td>0.4079</td>
+                            <td>0.2324</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tumor</td>
+                            <td>0.1171</td>
+                            <td>0.0592</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cyst</td>
+                            <td>0.0048</td>
+                            <td>0.0010</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h4>U-Net + Oversampling</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Class</th>
+                            <th>IoU</th>
+                            <th>Dice</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Background</td>
+                            <td>0.9951</td>
+                            <td>0.9975</td>
+                        </tr>
+
+                        <tr>
+                            <td>Kidney</td>
+                            <td>0.4473</td>
+                            <td>0.2432</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tumor</td>
+                            <td>0.1042</td>
+                            <td>0.0452</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cyst</td>
+                            <td>0.0001</td>
+                            <td>0.0000</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <div class="resultado-conclusion">
+
+                <strong>Conclusion:</strong>
+
+                oversampling improves the results during training, but does not
+                produce an equivalent improvement on validation and test sets,
+                indicating possible overfitting.
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================== -->
+        <!-- 3D MODELS -->
+        <!-- ===================== -->
+
+        <div class="resultados-bloque">
+
+            <h3>Results of the 3D Models</h3>
+
+            <p>
+                The 3D models process the medical volumes directly,
+                preserving the spatial information between the different
+                slices.
+            </p>
+
+            <p>
+                The <strong>U-Net</strong>,
+                <strong>V-Net</strong>, and
+                <strong>SegResNet</strong> architectures were evaluated,
+                combining them with different loss functions.
+            </p>
+
+
+            <h4>Comparison of 3D Architectures</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Model</th>
+                            <th>Configuration</th>
+                            <th>Kidney IoU</th>
+                            <th>Kidney Dice</th>
+                            <th>Tumor IoU</th>
+                            <th>Tumor Dice</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>U-Net</td>
+                            <td>Combined Loss</td>
+                            <td>0.4639</td>
+                            <td>0.6274</td>
+                            <td>0.0245</td>
+                            <td>0.0454</td>
+                        </tr>
+
+                        <tr>
+                            <td>V-Net</td>
+                            <td>CB Loss</td>
+                            <td>0.4118</td>
+                            <td>0.5773</td>
+                            <td>0.0934</td>
+                            <td>0.1546</td>
+                        </tr>
+
+                        <tr class="resultado-destacado">
+                            <td><strong>SegResNet</strong></td>
+                            <td><strong>Focal Loss Weighted</strong></td>
+                            <td><strong>0.3480</strong></td>
+                            <td><strong>0.5142</strong></td>
+                            <td><strong>0.1433</strong></td>
+                            <td><strong>0.2344</strong></td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <p>
+                In the experiments performed, <strong>SegResNet with
+                CB Loss</strong> showed consistent performance on
+                validation and test sets. In addition, different SegResNet
+                configurations allowed an improvement in tumor segmentation
+                compared with other architectures.
+            </p>
+
+
+            <div class="resultado-conclusion">
+
+                <strong>Key result:</strong>
+
+                the volumetric information provided by 3D models allows them
+                to exploit the spatial relationship between different slices,
+                providing better segmentation results than 2D models.
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================== -->
+        <!-- CLASS IMBALANCE -->
+        <!-- ===================== -->
+
+        <div class="resultados-bloque">
+
+            <h3>Impact of Class Imbalance</h3>
+
+            <p>
+                One of the main problems encountered during the experiments
+                was the strong class imbalance. The background represents
+                most of the voxels, while tumors and cysts occur much less
+                frequently.
+            </p>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Class</th>
+                            <th>Typical behavior</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>Background</td>
+                            <td>Very high performance</td>
+                        </tr>
+
+                        <tr>
+                            <td>Kidney</td>
+                            <td>Considerably better segmentation</td>
+                        </tr>
+
+                        <tr>
+                            <td>Tumor</td>
+                            <td>Reduced performance</td>
+                        </tr>
+
+                        <tr>
+                            <td>Cyst</td>
+                            <td>Particularly difficult to segment</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div class="resultado-conclusion">
+
+                <strong>Conclusion:</strong>
+
+                class imbalance remains one of the main challenges of the
+                problem, especially for the minority classes
+                tumor and cyst.
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================== -->
+        <!-- FINAL COMPARISON -->
+        <!-- ===================== -->
+
+        <div class="resultados-bloque">
+
+            <h3>Final Comparison</h3>
+
+            <p>
+                Overall, the experiments show a clear difference between
+                the 2D and 3D approaches. Although 2D models have lower
+                computational requirements and allow larger batch sizes,
+                they lose part of the spatial information present in the
+                medical volumes.
+            </p>
+
+            <p>
+                3D models, on the other hand, directly exploit volumetric
+                information and achieve better segmentation results, although
+                they require greater computational resources.
+            </p>
+
+            <div class="resultado-conclusion">
+
+                <strong>Main conclusion:</strong>
+
+                3D architectures are more suitable for volumetric medical
+                image segmentation, although class imbalance continues to
+                limit the segmentation of tumors and cysts in particular.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================================== -->
+<!-- CAPTURES -->
+<!-- =========================================== -->
+
+<section id="captures">
+
+    <div class="container">
+
+        <h2>Project Visualization</h2>
+
+        <p>
+            Below are some examples of the medical image processing and the
+            results obtained during the 2D and 3D segmentation experiments.
+        </p>
+
+
+        <!-- ===================== -->
+        <!-- 2D PREPROCESSING -->
+        <!-- ===================== -->
+
+        <div class="captura-principal">
+
+            <img src="../assets/pre2d.png"
+                 alt="Preprocessing of 2D medical images">
+
+            <div class="captura-info">
+
+                <h3>2D Image Preprocessing</h3>
+
+                <p>
+                    Example of the preprocessing process applied to the
+                    2D slices obtained from the medical volumes.
+                    The original images and their corresponding
+                    segmentation masks are shown.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- ===================== -->
+        <!-- 3D RESULTS -->
+        <!-- ===================== -->
+
+        <div class="capturas-grid">
+
+
+            <div class="captura-card">
+
+                <img src="../assets/unet3d.png"
+                     alt="3D segmentation result using U-Net">
+
+                <div class="captura-info">
+
+                    <h3>3D Segmentation</h3>
+
+                    <p>
+                        Comparison between the input image, the ground-truth
+                        mask, and the mask predicted by the segmentation model.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="captura-card">
+
+                <img src="../assets/vis3d.png"
+                     alt="Three-dimensional visualization of a medical image">
+
+                <div class="captura-info">
+
+                    <h3>Volumetric Visualization</h3>
+
+                    <p>
+                        Three-dimensional representation of a medical volume,
+                        showing the spatial structure of the data used during
+                        the experiments.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================== -->
+<!-- CONCLUSIONS -->
+<!-- =========================================== -->
+
+<section id="conclusions">
+    <div class="container">
+
+        <h2>Conclusions</h2>
+
+        <p>
+            This project made it possible to apply Computer Vision and
+            Deep Learning techniques to a real semantic segmentation problem
+            involving medical images from the <strong>KiTS23</strong> dataset,
+            comparing different 2D and 3D architectures.
+        </p>
+
+        <div class="conclusiones-list">
+
+            <div class="conclusion-item">
+
+                <h3>Advantage of 3D Architectures</h3>
+
+                <p>
+                    3D architectures showed better performance by leveraging
+                    the complete spatial information of the medical volumes,
+                    compared with 2D models based on individual slices.
+                </p>
+
+            </div>
+
+            <div class="conclusion-item">
+
+                <h3>Best Performance of SegResNet</h3>
+
+                <p>
+                    Among the evaluated models, <strong>SegResNet with
+                    CB Loss</strong> achieved consistent performance and
+                    stood out compared with U-Net and V-Net, showing a greater
+                    ability to extract relevant features.
+                </p>
+
+            </div>
+
+            <div class="conclusion-item">
+
+                <h3>Class Imbalance</h3>
+
+                <p>
+                    The strong class imbalance in the dataset represents
+                    one of the main challenges of the problem. Although
+                    the networks segment the background correctly, performance
+                    decreases considerably for the minority classes,
+                    especially <strong>tumors and cysts</strong>.
+                </p>
+
+            </div>
+
+            <div class="conclusion-item">
+
+                <h3>2D vs. 3D Comparison</h3>
+
+                <p>
+                    2D models have lower computational requirements and allow
+                    larger batch sizes to be used, but the loss of
+                    three-dimensional information limits their segmentation
+                    capability compared with 3D architectures.
+                </p>
+
+            </div>
+
+        </div>
+
+        <p class="conclusion-final">
+
+            In conclusion, 3D architectures are more suitable for volumetric
+            medical image segmentation, although further improvements in
+            class imbalance strategies are still necessary to achieve better
+            generalization, especially for the less represented structures.
+
+        </p>
+
+    </div>
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 José Manuel Román Rodríguez
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>
