@@ -6,7 +6,7 @@ conocimientos técnicos y proyectos realizados durante mi etapa universitaria.
 El proyecto ha sido desarrollado desde cero utilizando tecnologías web
 estándar y está orientado a servir como carta de presentación profesional.
 
-## 📋 Descripción
+## Descripción
 
 El portfolio recoge información sobre mi perfil, formación, tecnologías y
 proyectos desarrollados en diferentes áreas de la Ingeniería Informática.
@@ -24,13 +24,13 @@ metodología y los resultados obtenidos.
 
 El portfolio está disponible en español e inglés.
 
-## 🛠️ Tecnologías
+## Tecnologías
 
 - HTML5
 - CSS3
 - JavaScript
 
-## 🌐 Características
+## Características
 
 - Diseño responsive.
 - Tema oscuro.
@@ -40,7 +40,7 @@ El portfolio está disponible en español e inglés.
 - Enlaces a los repositorios de GitHub.
 - Estructura preparada para incorporar nuevos proyectos.
 
-## 📂 Estructura del proyecto
+## Estructura del proyecto
 
 ```text
 portfolio/
