@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compiler | José Manuel Román Rodríguez</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>José Manuel Román Rodríguez</h1>
+
+    <nav>
+        <a href="#hero">Description</a>
+
+        <a href="#funcionalidades">Features</a>
+
+        <a href="#arquitectura">Architecture</a>
+
+        <a href="#tecnologias">Technologies</a>
+
+        <a href="#ejemplo">Example</a>
+        
+        <a href="#organizacion">Project Structure</a>
+
+        <a href="#resultados">Results</a>
+
+        <a href="#conclusiones">Conclusions</a>
+
+        <div class="language-selector">
+                <a href="compilador.html">🇪🇸 ES</a>
+                <a href="compilador-en.html">🇬🇧 EN</a>
+        </div>
+
+        <a href="../index-en.html">← Back to Portfolio</a>
+    </nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
+
+<section id="hero">
+    <div class="container">
+
+        <h2>Compiler for an Imperative Language</h2>
+
+        <p>
+
+            Development of a complete compiler implemented in C using
+            Flex and Bison, incorporating lexical, syntactic and
+            semantic analysis, symbol table management and automatic
+            C code generation, for an imperative language designed
+            during the <strong>Language Processors</strong> course.
+
+        </p>
+
+        <p>
+            The compiler is capable of analyzing programs written in this
+            language, detecting lexical, syntactic and semantic errors and,
+            finally, automatically generating an equivalent C program.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="https://github.com/josemanuelroman0306/Compilador"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- FEATURES -->
+<!-- ===================================================== -->
+
+<section id="funcionalidades">
+    <div class="container">
+
+        <h2>Features</h2>
+
+        <ul>
+
+            <li>Lexical analysis using Flex.</li>
+
+            <li>Syntax analysis using Bison.</li>
+
+            <li>Semantic analysis.</li>
+
+            <li>Symbol table management.</li>
+
+            <li>Support for procedures.</li>
+
+            <li>Variables and different data types.</li>
+
+            <li>Lists and list operations.</li>
+
+            <li>Conditional statements and loops.</li>
+
+            <li>Automatic C code generation.</li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- ARCHITECTURE -->
+<!-- ===================================================== -->
+
+<section id="arquitectura">
+    <div class="container">
+
+        <h2>Architecture</h2>
+
+    <pre>
+
+    Program (.cesp)
+
+            │
+
+            ▼
+
+    Lexical Analysis
+    (Flex)
+
+            │
+
+            ▼
+
+    Syntax Analysis
+    (Bison)
+
+            │
+
+            ▼
+
+    Semantic Analysis
+
+            │
+
+            ▼
+
+    C Code Generation
+
+            │
+
+            ▼
+
+    generated.c
+
+            │
+
+            ▼
+
+    Compilation with GCC
+
+            │
+
+            ▼
+
+    Executable Program
+
+    </pre>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- TECHNOLOGIES -->
+<!-- ===================================================== -->
+
+<section id="tecnologias">
+    <div class="container">
+
+        <h2>Technologies</h2>
+
+        <ul>
+
+            <li>C</li>
+
+            <li>Flex</li>
+
+            <li>Bison</li>
+
+            <li>GCC</li>
+
+            <li>Make</li>
+
+            <li>Linux</li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- EXAMPLE -->
+<!-- ===================================================== -->
+
+<section id="ejemplo">
+    <div class="container">
+
+        <h2>Example</h2>
+
+        <p>
+
+            The compiler transforms programs written in the project's
+            language into fully functional C code.
+
+        </p>
+
+<pre>
+
+Principal {
+
+    entero a;
+
+    Escribe("Hola Mundo");
+
+}
+
+</pre>
+
+<p>
+
+Automatically generated code
+
+</p>
+
+<pre>
+
+printf("Hola Mundo");
+
+</pre>
+
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- PROJECT STRUCTURE -->
+<!-- ===================================================== -->
+
+<section id="organizacion">
+    <div class="container">
+
+    <h2>Project Structure</h2>
+
+<pre>
+
+BAABB.lex
+BAABB.y
+semantic.c
+semantic.h
+main.c
+funciones_listas.c
+funciones_listas.h
+makefile
+
+</pre>
+
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- RESULTS -->
+<!-- ===================================================== -->
+
+<section id="resultados">
+    <div class="container">
+
+    <h2>Results</h2>
+
+    <p>
+
+        The compiler automatically generates a
+        <strong>generated.c</strong> file, which can then be
+        compiled using GCC to obtain an executable program.
+
+    </p>
+
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CONCLUSIONS -->
+<!-- ===================================================== -->
+
+<section id="conclusiones">
+    <div class="container">
+
+    <h2>Conclusions</h2>
+
+    <ul>
+
+        <li>Development of a complete and functional compiler.</li>
+
+        <li>Implementation of the complete compilation process.</li>
+
+        <li>Integration of Flex and Bison.</li>
+
+        <li>Application of semantic analysis techniques.</li>
+
+        <li>Automatic generation of C code.</li>
+
+    </ul>
+
+    </div>
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 José Manuel Román Rodríguez
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

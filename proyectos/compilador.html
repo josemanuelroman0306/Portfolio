@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Compilador | José Manuel Román Rodríguez</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+<header>
+
+    <h1>José Manuel Román Rodríguez</h1>
+
+    <nav>
+        <a href="#hero">Descripción</a>
+
+        <a href="#funcionalidades">Funcionalidades</a>
+
+        <a href="#arquitectura">Arquitectura</a>
+
+        <a href="#tecnologias">Tecnologías</a>
+
+        <a href="#ejemplo">Ejemplo</a>
+        
+        <a href="#organizacion">Organización</a>
+
+        <a href="#resultados">Resultados</a>
+
+        <a href="#conclusiones">Conclusiones</a>
+
+        <div class="language-selector">
+                <a href="compilador.html">🇪🇸 ES</a>
+                <a href="compilador-en.html">🇬🇧 EN</a>
+        </div>
+
+        <a href="../index.html">← Volver al Portfolio</a>
+    </nav>
+
+</header>
+
+<!-- ===================================================== -->
+<!-- HERO -->
+<!-- ===================================================== -->
+
+<section id="hero">
+        <div class="container">
+
+            <h2>Compilador para un lenguaje imperativo</h2>
+
+            <p>
+
+                Desarrollo de un compilador completo implementado en C mediante
+                Flex y Bison, incorporando análisis léxico, sintáctico y
+                semántico, gestión de tabla de símbolos y generación automática
+                de código C, para un lenguaje imperativo diseñado durante la asignatura
+                <strong>Procesadores de Lenguajes</strong>. 
+
+            </p>
+
+            <p>
+                El compilador es capaz de analizar programas escritos en dicho
+                lenguaje, detectar errores léxicos, sintácticos y semánticos y,
+                finalmente, generar automáticamente un programa equivalente en C.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://github.com/josemanuelroman0306/Compilador"
+                            target="_blank"
+                            rel="noopener noreferrer">
+                            GitHub
+                </a>
+
+            </div>
+        </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- FUNCIONALIDADES -->
+<!-- ===================================================== -->
+
+<section id="funcionalidades">
+    <div class="container">
+
+        <h2>Funcionalidades</h2>
+
+        <ul>
+
+            <li>Análisis léxico mediante Flex.</li>
+
+            <li>Análisis sintáctico mediante Bison.</li>
+
+            <li>Comprobación semántica.</li>
+
+            <li>Gestión de tabla de símbolos.</li>
+
+            <li>Soporte para procedimientos.</li>
+
+            <li>Variables y distintos tipos de datos.</li>
+
+            <li>Listas y operaciones sobre listas.</li>
+
+            <li>Condicionales y bucles.</li>
+
+            <li>Generación automática de código C.</li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- ARQUITECTURA -->
+<!-- ===================================================== -->
+
+<section id="arquitectura">
+    <div class="container">
+
+        <h2>Arquitectura</h2>
+
+    <pre>
+
+    Programa (.cesp)
+
+            │
+
+            ▼
+
+    Análisis Léxico
+    (Flex)
+
+            │
+
+            ▼
+
+    Análisis Sintáctico
+    (Bison)
+
+            │
+
+            ▼
+
+    Análisis Semántico
+
+            │
+
+            ▼
+
+    Generación de código C
+
+            │
+
+            ▼
+
+    generated.c
+
+            │
+
+            ▼
+
+    Compilación con GCC
+
+            │
+
+            ▼
+
+    Programa ejecutable
+
+    </pre>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- TECNOLOGÍAS -->
+<!-- ===================================================== -->
+
+<section id="tecnologias">
+    <div class="container">
+
+        <h2>Tecnologías</h2>
+
+        <ul>
+
+            <li>C</li>
+
+            <li>Flex</li>
+
+            <li>Bison</li>
+
+            <li>GCC</li>
+
+            <li>Make</li>
+
+            <li>Linux</li>
+
+        </ul>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- EJEMPLO -->
+<!-- ===================================================== -->
+
+<section id="ejemplo">
+    <div class="container">
+
+        <h2>Ejemplo</h2>
+
+        <p>
+
+            El compilador transforma programas escritos en el lenguaje del
+            proyecto a código C completamente funcional.
+
+        </p>
+<pre>
+
+Principal {
+
+    entero a;
+
+    Escribe("Hola Mundo");
+
+}
+
+</pre>
+
+<p>
+
+Código generado automáticamente
+
+</p>
+
+<pre>
+
+printf("Hola Mundo");
+
+</pre>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- ORGANIZACIÓN -->
+<!-- ===================================================== -->
+
+<section id="organizacion">
+    <div class="container">
+
+    <h2>Organización del proyecto</h2>
+
+<pre>
+
+BAABB.lex
+BAABB.y
+semantic.c
+semantic.h
+main.c
+funciones_listas.c
+funciones_listas.h
+makefile
+
+</pre>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- RESULTADO -->
+<!-- ===================================================== -->
+
+<section id="resultados">
+    <div class="container">
+
+    <h2>Resultado</h2>
+
+    <p>
+
+        El compilador genera automáticamente un archivo
+        <strong>generated.c</strong>, que posteriormente puede
+        compilarse mediante GCC para obtener un programa ejecutable.
+
+    </p>
+    </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- CONCLUSIONES -->
+<!-- ===================================================== -->
+
+<section id="conclusiones">
+    <div class="container">
+
+    <h2>Conclusiones</h2>
+
+    <ul>
+
+        <li>Desarrollo completo de un compilador funcional.</li>
+
+        <li>Implementación del proceso completo de compilación.</li>
+
+        <li>Integración de Flex y Bison.</li>
+
+        <li>Aplicación de técnicas de análisis semántico.</li>
+
+        <li>Generación automática de código C.</li>
+
+    </ul>
+    </div>
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 José Manuel Román Rodríguez
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>
