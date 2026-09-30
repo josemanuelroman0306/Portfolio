@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Optimización mediante Metaheurísticas | José Manuel Román Rodríguez</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+</head>
+
+<body>
+
+    <header>
+
+        <h1>José Manuel Román Rodríguez</h1>
+
+        <nav>
+
+            <a href="#hero">Descripción</a>
+
+            <a href="#problema">Problema</a>
+
+            <a href="#algoritmos">Algoritmos</a>
+
+            <a href="#funcionamiento">Funcionamiento</a>
+
+            <a href="#tecnologias">Tecnologías</a>
+
+            <a href="#resultados">Resultados</a>
+
+            <a href="#conclusiones">Conclusiones</a>
+
+            <div class="language-selector">
+
+                <a href="metaheuristicas.html">🇪🇸 ES</a>
+
+                <a href="metaheuristicas-en.html">🇬🇧 EN</a>
+
+            </div>
+
+            <a href="../index.html">← Volver al portfolio</a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===================== -->
+    <!-- HERO -->
+    <!-- ===================== -->
+
+    <section id="hero">
+
+        <div class="container">
+
+            <h2>Optimización mediante Metaheurísticas</h2>
+
+            <p>
+                Implementación en <strong>C++</strong> de diferentes
+                metaheurísticas para la resolución del
+                <strong>Problema de la Mochila Cuadrática
+                (Quadratic Knapsack Problem, QKP)</strong>.
+                El proyecto incluye algoritmos genéticos, algoritmos
+                meméticos, búsqueda multiarranque, búsqueda local iterada
+                y enfriamiento simulado.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="https://github.com/josemanuelroman0306/..."
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- PROBLEMA -->
+    <!-- ===================== -->
+
+    <section id="problema">
+
+        <div class="container">
+
+            <h2>Problema</h2>
+
+            <p>
+                El <strong>Quadratic Knapsack Problem (QKP)</strong> es un
+                problema de optimización combinatoria basado en el problema
+                clásico de la mochila. El objetivo es seleccionar un conjunto
+                de elementos maximizando el beneficio obtenido sin superar
+                una determinada capacidad.
+            </p>
+
+            <p>
+                A diferencia del problema de la mochila tradicional, el QKP
+                considera también el beneficio generado por las
+                <strong>interacciones entre pares de elementos</strong>.
+                Por tanto, el valor de una solución depende tanto de los
+                elementos seleccionados individualmente como de las
+                combinaciones entre ellos.
+            </p>
+
+            <p>
+                El problema puede representarse mediante una solución binaria,
+                donde cada posición indica si un elemento ha sido seleccionado
+                o no.
+            </p>
+
+            <div class="resultado-conclusion">
+
+                <strong>Objetivo:</strong>
+
+                encontrar soluciones de alta calidad que maximicen el beneficio
+                total respetando la restricción de capacidad de la mochila.
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- ALGORITMOS -->
+    <!-- ===================== -->
+
+    <section id="algoritmos">
+
+        <div class="container">
+
+            <h2>Algoritmos implementados</h2>
+
+            <p>
+                El proyecto implementa diferentes estrategias de búsqueda
+                y optimización. Estas técnicas permiten estudiar distintas
+                formas de explorar el espacio de soluciones del QKP.
+            </p>
+
+
+            <!-- ===================== -->
+            <!-- ALGORITMOS GENÉTICOS -->
+            <!-- ===================== -->
+
+            <div class="resultados-bloque">
+
+                <h3>Algoritmos Genéticos</h3>
+
+                <p>
+                    Los algoritmos genéticos utilizan una población de
+                    soluciones y operadores inspirados en la evolución
+                    para explorar el espacio de búsqueda.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>AGG - Algoritmo Genético Generacional:</strong>
+                        reemplazo generacional de la población.
+                    </li>
+
+                    <li>
+                        <strong>AGE - Algoritmo Genético Estacionario:</strong>
+                        sustitución parcial de la población mediante nuevos
+                        descendientes.
+                    </li>
+
+                </ul>
+
+                <p>
+                    Se implementaron diferentes operadores de cruce,
+                    incluyendo un <strong>cruce de dos puntos</strong> y
+                    un <strong>cruce propuesto</strong>.
+                </p>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- ALGORITMOS MEMÉTICOS -->
+            <!-- ===================== -->
+
+            <div class="resultados-bloque">
+
+                <h3>Algoritmos Meméticos</h3>
+
+                <p>
+                    Los algoritmos meméticos combinan la exploración global
+                    de los algoritmos genéticos con técnicas de
+                    <strong>búsqueda local</strong> para mejorar las
+                    soluciones obtenidas.
+                </p>
+
+                <ul>
+
+                    <li>
+                        <strong>AM-All:</strong>
+                        aplicación de búsqueda local a toda la población.
+                    </li>
+
+                    <li>
+                        <strong>AM-Rand:</strong>
+                        aplicación de búsqueda local a un subconjunto
+                        seleccionado aleatoriamente.
+                    </li>
+
+                    <li>
+                        <strong>AM-Best:</strong>
+                        aplicación de búsqueda local sobre las soluciones
+                        consideradas de mayor calidad.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- ===================== -->
+            <!-- OTRAS METAHEURÍSTICAS -->
+            <!-- ===================== -->
+
+            <div class="resultados-bloque">
+
+                <h3>Otras metaheurísticas</h3>
+
+                <ul>
+
+                    <li>
+                        <strong>BMB - Basic Multi-Start Search:</strong>
+                        generación de múltiples soluciones iniciales y
+                        aplicación de búsqueda local.
+                    </li>
+
+                    <li>
+                        <strong>ILS - Iterated Local Search:</strong>
+                        aplicación iterativa de perturbaciones y búsqueda
+                        local para explorar diferentes regiones del espacio
+                        de soluciones.
+                    </li>
+
+                    <li>
+                        <strong>ES - Enfriamiento Simulado:</strong>
+                        permite aceptar determinadas soluciones peores
+                        durante la búsqueda para escapar de óptimos locales.
+                    </li>
+
+                    <li>
+                        <strong>ILS-ES:</strong>
+                        combinación de búsqueda local iterada con
+                        enfriamiento simulado.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- FUNCIONAMIENTO -->
+    <!-- ===================== -->
+
+    <section id="funcionamiento">
+
+        <div class="container">
+
+            <h2>Funcionamiento</h2>
+
+            <p>
+                Las diferentes metaheurísticas trabajan sobre una
+                representación binaria del problema. Cada solución indica
+                mediante un vector de ceros y unos qué elementos forman parte
+                de la mochila.
+            </p>
+
+
+            <div class="pasos-rag">
+
+
+                <!-- PASO 1 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Representación de las soluciones</h3>
+
+                        <p>
+                            Cada individuo se representa mediante un vector
+                            binario. Un valor <strong>1</strong> indica que
+                            el elemento correspondiente ha sido seleccionado,
+                            mientras que un <strong>0</strong> indica que
+                            no forma parte de la solución.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 2 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Evaluación de la solución</h3>
+
+                        <p>
+                            Cada solución se evalúa mediante una función de
+                            fitness que considera tanto los beneficios
+                            individuales de los elementos como los beneficios
+                            derivados de las interacciones entre ellos.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 3 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Control de la restricción</h3>
+
+                        <p>
+                            Las soluciones deben respetar la capacidad máxima
+                            de la mochila. Cuando una solución supera la
+                            capacidad disponible se aplica un proceso de
+                            reparación eliminando elementos seleccionados
+                            hasta recuperar la factibilidad.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 4 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Operadores genéticos</h3>
+
+                        <p>
+                            En los algoritmos genéticos se utilizan
+                            selección por torneo, diferentes operadores de
+                            cruce y mutación para generar nuevas soluciones
+                            a partir de la población existente.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 5 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Búsqueda local</h3>
+
+                        <p>
+                            La búsqueda local explora soluciones vecinas
+                            modificando los elementos seleccionados con el
+                            objetivo de encontrar mejoras respecto a la
+                            solución actual.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 6 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Perturbación</h3>
+
+                        <p>
+                            En algoritmos como ILS se introducen modificaciones
+                            controladas en la solución para escapar de óptimos
+                            locales y permitir la exploración de nuevas
+                            regiones del espacio de búsqueda.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PASO 7 -->
+
+                <div class="paso-rag">
+
+                    <span class="numero-paso"></span>
+
+                    <div>
+
+                        <h3>Enfriamiento simulado</h3>
+
+                        <p>
+                            El algoritmo de enfriamiento simulado utiliza una
+                            temperatura que disminuye progresivamente para
+                            controlar la probabilidad de aceptar movimientos
+                            que empeoran temporalmente la solución.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- TECNOLOGÍAS -->
+    <!-- ===================== -->
+
+    <section id="tecnologias">
+
+        <div class="container">
+
+            <h2>Tecnologías</h2>
+
+            <ul>
+
+                <li>C++</li>
+
+                <li>Algoritmos Genéticos</li>
+
+                <li>Algoritmos Meméticos</li>
+
+                <li>Metaheurísticas</li>
+
+                <li>Optimización Combinatoria</li>
+
+                <li>Búsqueda Local</li>
+
+                <li>Enfriamiento Simulado</li>
+
+            </ul>
+
+        </div>
+
+    </section>
+
+
+    <!-- ===================== -->
+    <!-- RESULTADOS -->
+    <!-- ===================== -->
+
+    <section id="resultados">
+
+    <div class="container">
+
+        <h2>Resultados</h2>
+
+        <p>
+            El proyecto permite comparar el comportamiento de diferentes
+            metaheurísticas sobre el problema de la mochila cuadrática,
+            analizando la calidad de las soluciones obtenidas y el coste
+            computacional de cada estrategia.
+        </p>
+
+
+        <div class="resultados-bloque">
+
+            <h3>Comparación de algoritmos</h3>
+
+            <p>
+                Los resultados experimentales se obtuvieron ejecutando los
+                diferentes algoritmos sobre instancias de distintos tamaños
+                y densidades. Para cada algoritmo se calcularon los valores
+                medios de fitness y tiempo de ejecución para cada tamaño
+                de instancia.
+            </p>
+
+
+            <h4>Tamaño de instancia: 100 elementos</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Algoritmo</th>
+                            <th>Fitness medio</th>
+                            <th>Tiempo medio (s)</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>AGG - Cruce 2 puntos</td>
+                            <td>180.211,75</td>
+                            <td>2,34</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGG - Cruce propuesto</td>
+                            <td>182.391,00</td>
+                            <td>2,37</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce 2 puntos</td>
+                            <td>167.791,75</td>
+                            <td>2,02</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce propuesto</td>
+                            <td>145.623,50</td>
+                            <td>1,99</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-All</td>
+                            <td>114.186,25</td>
+                            <td>1,15</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Rand</td>
+                            <td>173.833,50</td>
+                            <td>0,91</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Best</td>
+                            <td>179.782,00</td>
+                            <td>0,90</td>
+                        </tr>
+
+                        <tr>
+                            <td>BMB</td>
+                            <td>94.857,75</td>
+                            <td>1,50</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS</td>
+                            <td>110.811,25</td>
+                            <td>1,18</td>
+                        </tr>
+
+                        <tr>
+                            <td>ES</td>
+                            <td>62.499,50</td>
+                            <td>0,02</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS-ES</td>
+                            <td>86.775,50</td>
+                            <td>0,73</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h4>Tamaño de instancia: 200 elementos</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Algoritmo</th>
+                            <th>Fitness medio</th>
+                            <th>Tiempo medio (s)</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>AGG - Cruce 2 puntos</td>
+                            <td>716.403,00</td>
+                            <td>11,84</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGG - Cruce propuesto</td>
+                            <td>732.018,75</td>
+                            <td>9,24</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce 2 puntos</td>
+                            <td>587.435,75</td>
+                            <td>7,46</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce propuesto</td>
+                            <td>521.944,25</td>
+                            <td>7,30</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-All</td>
+                            <td>424.349,50</td>
+                            <td>5,80</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Rand</td>
+                            <td>672.777,25</td>
+                            <td>4,38</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Best</td>
+                            <td>683.520,50</td>
+                            <td>4,37</td>
+                        </tr>
+
+                        <tr>
+                            <td>BMB</td>
+                            <td>371.550,00</td>
+                            <td>7,69</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS</td>
+                            <td>419.767,75</td>
+                            <td>5,90</td>
+                        </tr>
+
+                        <tr>
+                            <td>ES</td>
+                            <td>299.068,75</td>
+                            <td>0,31</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS-ES</td>
+                            <td>352.235,00</td>
+                            <td>3,62</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <h4>Tamaño de instancia: 300 elementos</h4>
+
+            <div class="tabla-resultados">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>Algoritmo</th>
+                            <th>Fitness medio</th>
+                            <th>Tiempo medio (s)</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>AGG - Cruce 2 puntos</td>
+                            <td>1.066.757,50</td>
+                            <td>22,78</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGG - Cruce propuesto</td>
+                            <td>1.068.395,00</td>
+                            <td>20,92</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce 2 puntos</td>
+                            <td>819.625,00</td>
+                            <td>17,05</td>
+                        </tr>
+
+                        <tr>
+                            <td>AGE - Cruce propuesto</td>
+                            <td>715.425,50</td>
+                            <td>16,48</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-All</td>
+                            <td>593.504,50</td>
+                            <td>17,80</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Rand</td>
+                            <td>918.464,00</td>
+                            <td>11,20</td>
+                        </tr>
+
+                        <tr>
+                            <td>AM-Best</td>
+                            <td>992.894,50</td>
+                            <td>11,25</td>
+                        </tr>
+
+                        <tr>
+                            <td>BMB</td>
+                            <td>519.155,50</td>
+                            <td>18,66</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS</td>
+                            <td>594.701,00</td>
+                            <td>12,35</td>
+                        </tr>
+
+                        <tr>
+                            <td>ES</td>
+                            <td>458.686,00</td>
+                            <td>1,05</td>
+                        </tr>
+
+                        <tr>
+                            <td>ILS-ES</td>
+                            <td>512.936,50</td>
+                            <td>7,93</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+        <div class="resultados-bloque">
+
+            <h3>Análisis experimental</h3>
+
+            <p>
+                Los resultados muestran que el tamaño de las instancias tiene
+                una influencia notable tanto sobre la calidad de las soluciones
+                como sobre el tiempo de ejecución. Al aumentar el número de
+                elementos de 100 a 300, los tiempos de ejecución se incrementan
+                de forma general en las diferentes estrategias.
+            </p>
+
+            <p>
+                Las tablas permiten comparar el comportamiento de las distintas
+                variantes de algoritmos genéticos y meméticos, así como de las
+                estrategias basadas en búsqueda local, enfriamiento simulado
+                y métodos híbridos.
+            </p>
+
+            <p>
+                En particular, la división de los resultados por tamaño permite
+                observar cómo cambia el comportamiento de cada estrategia a
+                medida que aumenta la complejidad de las instancias.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- ===================== -->
+    <!-- CONCLUSIONES -->
+    <!-- ===================== -->
+
+<section id="conclusiones">
+
+    <div class="container">
+
+        <h2>Conclusiones</h2>
+
+        <ul>
+
+            <li>
+                <strong>Implementación de diferentes estrategias de
+                optimización.</strong>
+                El proyecto reúne algoritmos genéticos, meméticos y
+                diferentes metaheurísticas de búsqueda aplicadas a un
+                problema de optimización combinatoria.
+            </li>
+
+            <li>
+                <strong>Combinación de exploración y explotación.</strong>
+                Las diferentes técnicas permiten estudiar el equilibrio
+                entre la exploración del espacio de soluciones y la
+                explotación de soluciones prometedoras.
+            </li>
+
+            <li>
+                <strong>Uso de búsqueda local.</strong>
+                Los algoritmos meméticos e ILS incorporan mecanismos de
+                búsqueda local para mejorar las soluciones encontradas
+                durante el proceso de optimización.
+            </li>
+
+            <li>
+                <strong>Aplicación del enfriamiento simulado.</strong>
+                ES e ILS-ES utilizan mecanismos probabilísticos que
+                permiten explorar soluciones que pueden empeorar
+                temporalmente el fitness y escapar de óptimos locales.
+            </li>
+
+            <li>
+                <strong>Comparación experimental.</strong>
+                La implementación permite comparar diferentes estrategias
+                de optimización utilizando métricas como la calidad de las
+                soluciones, el número de evaluaciones y el tiempo de
+                ejecución.
+            </li>
+
+            <li>
+                <strong>Resultados de los algoritmos genéticos.</strong>
+                Los algoritmos AGG presentan los valores medios de fitness
+                más elevados en los tres tamaños de instancia analizados.
+                Además, el cruce propuesto mejora los resultados del cruce
+                de dos puntos en AGG, mientras que en AGE ocurre lo
+                contrario.
+            </li>
+
+            <li>
+                <strong>Comportamiento de los algoritmos meméticos.</strong>
+                AM-Best obtiene resultados de fitness superiores a
+                AM-Rand y AM-All en los tres tamaños de instancia,
+                manteniendo además tiempos de ejecución inferiores a los
+                algoritmos genéticos.
+            </li>
+
+            <li>
+                <strong>Influencia del tamaño de las instancias.</strong>
+                El incremento del número de elementos de 100 a 300 produce
+                un aumento significativo del tiempo de ejecución en
+                prácticamente todas las estrategias, mostrando el impacto
+                del tamaño del problema sobre el coste computacional.
+            </li>
+
+            <li>
+                <strong>Equilibrio entre calidad y coste computacional.</strong>
+                Los resultados muestran que no existe una única estrategia
+                que destaque simultáneamente en todas las métricas. Algunas
+                técnicas alcanzan soluciones de mayor calidad a costa de un
+                mayor tiempo de ejecución, mientras que otras proporcionan
+                soluciones en tiempos considerablemente menores.
+            </li>
+
+            <li>
+                <strong>Aplicación de técnicas de Computación
+                Inteligente.</strong>
+                El proyecto permite aplicar diferentes técnicas de
+                optimización y búsqueda a un problema combinatorio
+                complejo, reforzando conocimientos de diseño,
+                implementación y evaluación experimental de algoritmos.
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+
+    <!-- ===================== -->
+    <!-- FOOTER -->
+    <!-- ===================== -->
+
+    <footer>
+
+        <p>© 2026 José Manuel Román Rodríguez</p>
+
+    </footer>
+
+</body>
+
+</html>
+
