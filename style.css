@@ -74,6 +74,8 @@ header {
     border-bottom: 1px solid #2b2b2b;
 
     z-index: 1000;
+
+    transition: transform 0.3s ease;
 }
 
 /* ======================================
@@ -303,7 +305,7 @@ footer {
 
     body {
 
-        padding-top: 140px;
+        padding-top: 120px;
 
     }
 
@@ -994,6 +996,18 @@ RESPONSIVE
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* ======================================
+   NAVBAR MÓVIL OCULTABLE
+====================================== */
+
+@media (max-width: 900px) {
+
+    header.navbar-hidden {
+        transform: translateY(-100%);
+    }
+
 }
 
 /* ======================================

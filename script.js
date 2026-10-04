@@ -1,15 +1,21 @@
-const revealElements = document.querySelectorAll('.reveal');
+let lastScrollY = window.scrollY;
+const header = document.querySelector('header');
 
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+window.addEventListener('scroll', () => {
+
+    if (window.innerWidth <= 900) {
+
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            // Bajando
+            header.classList.add('navbar-hidden');
+        } else {
+            // Subiendo
+            header.classList.remove('navbar-hidden');
         }
-    });
-}, {
-    threshold: 0.15
-});
 
-revealElements.forEach(element => {
-    observer.observe(element);
+        lastScrollY = currentScrollY;
+    }
+
 });
