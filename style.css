@@ -1002,13 +1002,10 @@ RESPONSIVE
    NAVBAR MÓVIL OCULTABLE
 ====================================== */
 
-@media (max-width: 900px) {
-
-    header.navbar-hidden {
-        transform: translateY(-100%);
-    }
-
+header.navbar-hidden {
+    transform: translateY(-100%);
 }
+
 
 /* ======================================
    FONDOS
